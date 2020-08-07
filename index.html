@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CalculaRiv | Calculadora online</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+   <!-- Main css -->
+  <link rel="stylesheet" href="dist/css/main.css">
+
+  <!-- Google Font
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../../index2.html" class="navbar-brand"><b>Calcula</b>Riv</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
+        <!--     <li><a href="#">Manual</a></li>
+            <li><a href="#">Quienes somos</a></li>-->
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+    <div class="container">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Calculadora
+          <small>Version 1.0</small>
+      </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+          <li><a href="#">Calculadora</a></li>
+          <li class="active">Prueba</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+
+          <div class="col-md-12" id="form_set" style="display:none">
+
+                <div class="row">
+                    <table id="tabla-__prefix__-numero" class='no_error'>
+                        <p>total</p>
+                        <input name="id_form-TOTAL_FORMS" tipo-pag="0" value="0" id="id_form-TOTAL_FORMS">
+                        <p>ultimo</p>
+                        <input name="form-ultimo" tipo-pag="0" value="0" id="form-ultimo">
+                    </table>
+                </div>
+
+                <div class="row">
+                    <table id="tabla-auxiliar" class='no_error'>
+                        <p>total-change</p>
+                        <input type="number" name="total-change" value="0" id="total-change">
+                        <p>total</p>
+                        <input  type="number" name="total" value="0" id="total">
+                        <p>cantidad-total</p>
+                        <input type="number" name="cantidad-total" value="0" id="cantidad-total">
+                        <p>cambio</p>
+                        <input step="0.01" type="number" name="cambio" value="1" id="cambio">
+                    </table>
+                </div>
+
+          </div>
+
+
+          <div class="row">
+
+
+          <div class="col-md-8">
+              <div class="box box-primary">
+                  <div class="box-header with-border">
+                      <h3 class="box-title"> <i class="fa fa-edit"></i> Opciones</h3>
+                  </div>
+
+                  <div class="box-body">
+
+                      <div class="row">
+
+                          <div class="col-lg-6 col-md-6  col-sm-12">
+                              <div class="form-group">
+                              <label >Usar cambio</label>
+                              <select name="id_usar_cambio" class="form-control input-sm input-md input-lg pull-right" id="id_usar_cambio">
+                                  <option value="1">Si</option>
+                                  <option value="0">No</option>
+                              </select>
+                              </div>
+                          </div>
+
+
+                          <div id="div_id_cambio_compra" class="col-lg-6 col-md-6  col-sm-12">
+                              <div class="form-group">
+                              <label >Cambio</label>
+                              <input type="number" name="aux_cambio_compra" class="form-control input-sm input-md input-lg pull-right" min="0.00" required="false" placeholder="Valor por dolar" step="0.01" id="aux_id_cambio_compra">
+                              </div>
+                          </div>
+
+                      </div>
+
+
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class="col-md-4">
+              <div class="box box-primary">
+
+                  <div class="box-header with-border">
+                      <h3 class="box-title"> <i class="fa fa-credit-card"></i> Resumen</h3>
+                  </div>
+
+                  <div class="box-body">
+                      <div class="text-center">
+                          <p> <b id="nro-items">0</b> Items <b style="display:none" id="total-productos">0</b></p>
+                      </div>
+
+                      <table class="table">
+                                   <tbody>
+                                    <tr>
+                                      <th>Total:</th>
+                                      <td>
+                                        <b id="total-aux">0</b>
+                                      <div id="div-total-change" >
+                                        <b id="total-change-aux">0</b>
+                                          <i  class="fa fa-exchange"></i>
+                                      </div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                      </table>
+
+                  </div>
+
+
+              </div>
+
+          </div>
+
+            </div>
+
+        <!-- box primary de la tabla de productos dinamica -->
+        <div class="box" id="div-tabla">
+          <div class="box-header">
+            <h3 class="box-title"> <i class="fa fa-calculator"></i> Calculadora </h3>
+          </div>
+          <!-- /.box-header -->
+
+
+                <div class="box-body">
+
+
+                        <label for="">Suma:</label>
+                        <div class="input-group">
+                              <input type="text" class="form-control input-lg" name="buscador2" onkeypress="Only2(event)" onpaste="return false;">
+                               <span class="input-group-btn">
+                                  <button type="button" class="limpiarlista btn btn-primary btn-lg"> <i class="fa fa-refresh"> </i> </button>
+                               </span>
+
+                          </div>
+                </div>
+
+                <div class="box-body">
+                <div class="table-responsive no-padding">
+                  <table class="table table-hover" id="myTable">
+
+                    <thead>
+                    <tr>
+                      <th class="text-center">Accion</th>
+                      <th class="text-center">Cifra 1</th>
+                      <th class="text-center">Cifra 2</th>
+                      <th class="text-center">Sub-Total</th>
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="myTableBody">
+
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class="text-center"> <h4> <b id="total-aux-tabla">0</b></h4></th>
+                     </tbody>
+
+
+                  </table>
+                </div>
+                <!-- /.box-body -->
+                </div>
+
+
+              </form>
+
+
+        </div>
+        <!-- /.fin del div del box de la tabla -->
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 0.0.1
+      </div>
+      <strong>Copyright <a href="">Rafael Rivero</a>.</strong> All rights
+      reserved.
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- main js -->
+<script src="dist/js/main.js"> </script>
+</body>
+</html>
