@@ -46,6 +46,38 @@
           </ul>
         </div>
         <!-- /.navbar-collapse -->
+
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <img src="dist/img/icontotal.png" class="user-image" alt="User Image">
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs">Resumen</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+
+                  <p>
+                    Totales
+                    <p id="resumen">0</p>
+                  </p>
+                  <div class="div-resumen-change">
+                      <b id="resumen-change">0</b>
+                      <i class="fa fa-exchange"></i>
+                  </div>
+                </li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-custom-menu -->
       </div>
       <!-- /.container-fluid -->
     </nav>
@@ -91,6 +123,10 @@
                         <input type="number" name="cantidad-total" value="0" id="cantidad-total">
                         <p>cambio</p>
                         <input step="0.01" type="number" name="cambio" value="1" id="cambio">
+                        <p>total-resumen</p>
+                        <input type="number" name="total-resumen" value="0" id="total-resumen">
+                        <p>total-resumen-change</p>
+                        <input  type="number" name="total-resumen-change" value="0" id="total-resumen-change">
                     </table>
                 </div>
 
@@ -223,8 +259,9 @@
                 <!-- /.box-body -->
                 </div>
 
-
-              </form>
+              <div class="box-footer">
+              <button id="guardar" class="btn btn-primary pull-right btn-lg"> <li class="fa fa-check-square-o"></li> </button>
+              </div>
 
 
         </div>

@@ -40,6 +40,28 @@ function cambiarCantidad(diff){
     return 0;
 }
 
+
+
+function sumarResumen(total,totalChange){
+    let resumen = parseFloat($("#total-resumen").val().trim());
+    let resumenChange = parseFloat($("#total-resumen-change").val().trim());
+
+
+    let r_total = resumen+total;
+    let r_change=resumenChange+totalChange;
+
+    r_total = r_total.toFixed(2);
+    r_change = r_change.toFixed(2);
+    $("#total-resumen").val(r_total);
+    $("#total-resumen-change").val(r_change);
+
+    $("#resumen").html(numberWithCommas(r_total));
+    $("#resumen-change").html(numberWithCommas(r_change));
+
+
+    return 0;
+}
+
 function cambiarTotal(diff){
     let total = parseFloat($("#total").val().trim());
     let totalChange = parseFloat($("#total-change").val().trim());
@@ -94,8 +116,8 @@ function appendToTable(input) {
 
 
         //crea el input para la cantidad aux y el costo aux
-        var div = `<input type="number" step="1" class="form-control input-lg pull-right" min="0" placeholder="0" id="id_cantidad_${id_new}">`;
-        var div2 = `<input type="number" class="form-control input-lg pull-right" min="0" placeholder="0" id="id_costo_${id_new}">`;
+        var div = `<input type="number" step="1" class="form-control input-lg pull-right table" min="0" placeholder="0" id="id_cantidad_${id_new}">`;
+        var div2 = `<input type="number" class="form-control input-lg pull-right table" min="0" placeholder="0" id="id_costo_${id_new}">`;
 
         cambiarCantidad(numero2);
         cambiarTotal(parseFloat(sub));
@@ -146,6 +168,7 @@ function appendToTable(input) {
 
                             if($('#myTable tr').length==2){
                                 $("#total-aux-tabla").hide();
+                                $("#guardar").hide();
                             }
                     });
 
@@ -218,6 +241,7 @@ function appendToTable(input) {
                     $('#form-ultimo').val(parseInt(form_idx) + 1 );
 
                     $('#nro-items').html($('#form-ultimo').val());
+                    $("#guardar").show();
 
     }else{
         alert("Formato invalido: Numero * Numero");
@@ -276,6 +300,7 @@ $(document).ready( function () {
 //$("#div_id_cambio_compra").hide();
 $("#total-aux-tabla").hide();
 $("#aux_id_cambio_compra").val(1);
+$("#guardar").hide();
 
 
 
@@ -284,8 +309,10 @@ $("#id_usar_cambio").change(function(){
     if($(this).val()=="1"){
         $("#div_id_cambio_compra").show();
         $("#div-total-change").show();
+        $("#div-resumen-change").show();
     }else{
         $("#div-total-change").hide();
+        $("#div-resumen-change").hide();
         $("#aux_id_cambio_compra").val(1);
         $("#div_id_cambio_compra").hide();
     }
@@ -314,6 +341,21 @@ $("#aux_id_cambio_compra").on("input change", function(){
 $(".limpiarlista").on("click", function() {
 
 
+
+     $("#myTableBody tr").each(function() { //Si el codigo ya esta registrado lo cancela
+        $(this).find('.quitar-lista').click();
+    });
+
+
+});
+
+
+
+$("#guardar").on("click", function() {
+
+     let total = parseFloat($("#total").val().trim());
+     let totalChange = parseFloat($("#total-change").val().trim());
+     sumarResumen(total,totalChange);
 
      $("#myTableBody tr").each(function() { //Si el codigo ya esta registrado lo cancela
         $(this).find('.quitar-lista').click();
