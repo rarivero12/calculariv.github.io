@@ -73,12 +73,12 @@ function cambiarTotal(diff){
     let n_change=n_total/cambio;
     console.log(n_change);
 
-     if(n_total<0.1){
-         n_total=0.00;
-     }
-     if(n_change<0.1){
-         n_change=0.00;
-     }
+//     if(n_total<0.1){
+//         n_total=0.00;
+//     }
+//     if(n_change<0.1){
+//         n_change=0.00;
+//     }
 
      n_change = Math.round((n_change + Number.EPSILON) * 100) / 100;
      n_total = n_total.toFixed(2);
@@ -95,8 +95,8 @@ function cambiarTotal(diff){
 }
 
 
-function appendToTable(input) {
-    var regex = new RegExp("^(?:(?:(?:\\d+\\.)?\\d+)(?:\\*)?)(?:(?:(?:\\d+\\.)?\\d+)?)$");
+function appendToTable(input, tipo) {
+    var regex = new RegExp("^(?:(?:(?:\\d+\\.)?\\d+)(?:\\*)?)(?:(?:(?:\\d+\\.)?\\d+))$");
     if (regex.test(input)) {
         var subs = input.split('*');
         if(subs.length>1){
@@ -115,19 +115,26 @@ function appendToTable(input) {
         sub = sub.toFixed(2);
 
 
+        if(tipo){
+            var signo = `<tr id="${id_new}">`;
+            cambiarTotal(parseFloat(sub));
+        }else{
+            var signo = `<tr id="${id_new}" class="bg-danger">`;
+            cambiarTotal(-parseFloat(sub));
+        }
+
         //crea el input para la cantidad aux y el costo aux
         var div = `<input type="number" step="1" class="form-control input-lg pull-right table" min="0" placeholder="0" id="id_cantidad_${id_new}">`;
         var div2 = `<input type="number" class="form-control input-lg pull-right table" min="0" placeholder="0" id="id_costo_${id_new}">`;
 
         cambiarCantidad(numero2);
-        cambiarTotal(parseFloat(sub));
-        console.log(id_new);
+
+
 
         //agrega la tabla
-        $('#myTable tr:last').before(`
-                    <tr id="${id_new}">
+        $('#myTable tr:last').before(signo +`
                       <td class="text-center">
-                          <a type="button" id="quitar-lista-${id_new}" class="quitar-lista btn btn-danger btn-lg" data-id="${id_new}">
+                          <a type="button" id="quitar-lista-${id_new}" class="quitar-lista btn btn-danger btn-lg" es_positivo="${tipo}" data-id="${id_new}">
                               <i class="fa fa-trash"></i>
                           </a>
                         </td>
@@ -141,7 +148,7 @@ function appendToTable(input) {
                         `<input type="number" style="display:none" type="hidden" name="sub-total${id_new}" value="${sub}" id="sub-total${id_new}">
                         </td>
                        <td class="text-center">
-                            <h4 id="sub_${id_new}"> ${numberWithCommas(sub)}</h4>
+                       <h4 id="sub_${id_new}" >  ${numberWithCommas(sub)}</h4>
                        </td>
                     </tr>`);
 
@@ -151,10 +158,16 @@ function appendToTable(input) {
 
                             var sub = parseFloat($("#sub-total"+$(this).attr("data-id")).val().trim());
                             var cantidad = parseInt($("#id_cantidad_"+$(this).attr("data-id")).val());
+                            var es_positivo = ($(this).attr("es_positivo")=="1");
 
 
                             //Modifica el input de cantidad de productos totales y la pizarra de totales
-                            cambiarTotal(-sub);
+                            if(es_positivo){
+                                cambiarTotal(-sub);
+                            }else{
+                                cambiarTotal(sub);
+                            }
+
                             cambiarCantidad(-cantidad);
 
 
@@ -198,7 +211,13 @@ function appendToTable(input) {
                        $("#sub-total"+id_new).val(subn);
                        var dif = subn - old;
 
-                       cambiarTotal(parseFloat(dif));
+
+                       if(tipo){
+                           cambiarTotal(parseFloat(dif));
+                       }else{
+                           cambiarTotal(-parseFloat(dif));
+                       }
+
                        return 0;
 
                     });
@@ -225,7 +244,14 @@ function appendToTable(input) {
                         $("#sub_"+id_new).html(numberWithCommas(subn));
                         $("#sub-total"+id_new).val(subn);
                         var dif = subn - old;
-                        cambiarTotal(parseFloat(dif));
+
+
+                        if(tipo){
+                            cambiarTotal(parseFloat(dif));
+                        }else{
+                            cambiarTotal(-parseFloat(dif));
+                        }
+            
                         return 0;
                     });
 
@@ -270,6 +296,23 @@ function Only2 () {  // Accept only alpha numerics, no special characters
 
 $(window).keyup(function(event){
 
+
+    if(event.keyCode == 109) {
+
+        //Busca el valor que tiene el input
+        var input = $('input[name="buscador2"]').val().trim();
+        $('input[name="buscador2"]').val('');//Setea el valor en "" para un nuevo
+
+
+        if(input==""){ //Si el valor es 0 lo cancela
+            return 0;
+        }
+
+        appendToTable(input,0);
+
+
+    }
+
   if(event.keyCode == 13 || event.keyCode == 107) {
 
       //Busca el valor que tiene el input
@@ -281,7 +324,7 @@ $(window).keyup(function(event){
           return 0;
       }
 
-      appendToTable(input);
+      appendToTable(input,1);
 
 
   }
