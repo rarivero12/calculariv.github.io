@@ -1,10 +1,4 @@
 
-*,
-*::before,
-*::after {
-  
-}
-
 button {
   border: 0;
   border-radius: 0;
@@ -23,12 +17,12 @@ button {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2em;
-  max-width: 15em;
   overflow: hidden;
+  display:none;
 }
 
 .calculator__display {
-  background-color: #222222;
+  background-color: #292b2c;
   color: #fff;
   font-size: 1.714285714em;
   padding: 0.5em 0.75em;
@@ -74,12 +68,6 @@ button {
 }
 
 
-@media only screen and (max-width: 2000px) {
-  .desaparece {
-    display: none;
-  }
-
-}
 
 
 
@@ -87,4 +75,19 @@ button {
     input.table {
       width: auto;
     }
+
+
+}
+
+
+@media only screen and (max-width: 1050px) {
+    .calculator {
+      display :block;
+    }
+
+    .desaparece{
+        display:none;
+    }
+
+
 }
