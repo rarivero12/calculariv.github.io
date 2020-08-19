@@ -271,13 +271,11 @@
 
         <div class="calculator">
 
-            <div class="calculator__display">
-                0
-            </div>
+            <div class="calculator__display">0</div>
 
 
             <div class="calculator__keys">
-                <button class="key--operator" data-action="div"></button>
+                <button class="key--operator" data-action="clear">AC</button>
               <button class="key--operator" data-action="add">+</button>
               <button class="key--operator" data-action="subtract">-</button>
               <button class="key--operator" data-action="multiply">&times;</button>
@@ -290,10 +288,10 @@
               <button>1</button>
               <button>2</button>
               <button>3</button>
+              <button data-action="decimal2"></button>
               <button>0</button>
-              <button data-action="decimal">.</button>
               <button class="key--equal" data-action="calculate">=</button>
-              <button data-action="decimal"></button>
+              <button data-action="decimal">.</button>
 
             </div>
 
@@ -334,5 +332,7 @@
 <script src="dist/js/demo.js"></script>
 <!-- main js -->
 <script src="dist/js/main.js"> </script>
+<!-- calculadora js -->
+<script src="dist/js/calculadora.js"> </script>
 </body>
 </html>
