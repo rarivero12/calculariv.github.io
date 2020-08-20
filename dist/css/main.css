@@ -1,13 +1,18 @@
-.btn-mio {
+
+
+.button {
   border: 0;
   border-radius: 0;
   background-color: transparent;
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
+  outline: none;
   appearance: none;
   text-align: left;
 }
+
+
 .calculator {
   border-radius: 12px;
   box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
