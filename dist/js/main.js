@@ -124,8 +124,8 @@ function appendToTable(input, tipo) {
         }
 
         //crea el input para la cantidad aux y el costo aux
-        var div = `<input type="number" step="1" class="form-control input-lg pull-right table" min="0" placeholder="0" id="id_cantidad_${id_new}">`;
-        var div2 = `<input type="number" class="form-control input-lg pull-right table" min="0" placeholder="0" id="id_costo_${id_new}">`;
+        var div = `<input type="number" step="1" class="form-control input-lg pull-right table desaparece" min="0" placeholder="0" id="id_cantidad_${id_new}">`;
+        var div2 = `<input type="number" class="form-control input-lg pull-right table desaparece" min="0" placeholder="0" id="id_costo_${id_new}">`;
 
         cambiarCantidad(numero2);
 
@@ -139,11 +139,12 @@ function appendToTable(input, tipo) {
                           </a>
                         </td>
                        <td>
-                       <div>`
+                       `
                             + div2 +
-                       `</div>
+                       `<h4 class="desaparece2 text-center">  ${numberWithCommas(numero1)}</h4>
                        </td>
-                       <td>`
+                       <td>
+                       <h4 class="desaparece2 text-center">  ${numberWithCommas(numero2)}</h4>`
                        + div +
                         `<input type="number" style="display:none" type="hidden" name="sub-total${id_new}" value="${sub}" id="sub-total${id_new}">
                         </td>

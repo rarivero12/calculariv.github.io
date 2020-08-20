@@ -82,6 +82,17 @@
 }
 
 
+@media only screen and (min-width: 1050px) {
+
+        .desaparece2{
+            display:none;
+        }
+
+
+
+}
+
+
 @media only screen and (max-width: 1050px) {
     .calculator {
       display :block;
@@ -90,6 +101,7 @@
     .desaparece{
         display:none;
     }
+
 
 
 }
