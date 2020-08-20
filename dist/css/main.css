@@ -1,4 +1,10 @@
 
+
+a:focus {
+  outline: none;
+}
+
+
 button {
   border: 0;
   border-radius: 0;

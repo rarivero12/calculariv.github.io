@@ -448,7 +448,9 @@ keys.addEventListener("click", e => {
         }
 
         if ( action === 'multiply' ) {
-          display.textContent = displayedNum + '*';
+            if (!displayedNum.includes('*')) {
+              display.textContent = displayedNum + '*'
+            }
         }
 
         if (action === 'decimal') {
