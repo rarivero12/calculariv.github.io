@@ -96,7 +96,7 @@ function cambiarTotal(diff){
 
 
 function appendToTable(input, tipo) {
-    var regex = new RegExp("^(?:(?:(?:\\d+\\.)?\\d+)(?:\\*)?)(?:(?:(?:\\d+\\.)?\\d+))$");
+    var regex = new RegExp("^(?:(?:(?:\\d+\\.)?\\d+)(?:\\*)?)?(?:(?:(?:\\d+\\.)?\\d+))$");
     if (regex.test(input)) {
         var subs = input.split('*');
         if(subs.length>1){

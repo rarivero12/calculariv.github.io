@@ -21,6 +21,8 @@
   margin-top: 2em;
   overflow: hidden;
   display:none;
+  position: static;
+
 }
 
 .calculator__display {
