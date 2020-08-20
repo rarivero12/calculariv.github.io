@@ -4,7 +4,10 @@ a:focus {
   outline: none;
 }
 
-
+input,
+textarea{
+    outline: none;
+}
 button {
   border: 0;
   border-radius: 0;
