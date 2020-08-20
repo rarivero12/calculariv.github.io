@@ -1,6 +1,6 @@
 
 
-button {
+.btn-mio {
   border: 0;
   border-radius: 0;
   background-color: transparent;
@@ -10,6 +10,12 @@ button {
   outline: none;
   appearance: none;
   text-align: left;
+}
+
+.btn-mio:hover,
+.btn-mio:active,
+.btn-mio:focus {
+  outline: none;
 }
 
 .calculator {
