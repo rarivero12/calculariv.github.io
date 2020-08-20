@@ -1,27 +1,5 @@
 
 
-a:focus {
-  outline: none;
-}
-
-input,
-textarea{
-    outline: none;
-}
-
-
-input:hover,
-input:active,
-input:focus,
-textarea:hover,
-textarea:active,
-textarea:focus,
-button:hover,
-button:active,
-button:focus {
-  outline: none;
-}
-
 button {
   border: 0;
   border-radius: 0;
