@@ -71,7 +71,7 @@ function cambiarTotal(diff){
 
     let n_total = total+diff;
     let n_change=n_total/cambio;
-    console.log(n_change);
+
 
 //     if(n_total<0.1){
 //         n_total=0.00;
@@ -427,7 +427,7 @@ keys.addEventListener("click", e => {
 
 
         if (!action) {
-        console.log('number key!')
+
 
         if (displayedNum === '0') {
           display.textContent = keyContent
@@ -454,7 +454,7 @@ keys.addEventListener("click", e => {
         }
 
         if (action === 'decimal') {
-         console.log('decimal key!')
+
           display.textContent = displayedNum + '.'
         }
 
