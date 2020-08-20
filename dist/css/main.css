@@ -73,15 +73,6 @@
 
 
 
-@media only screen and (max-width: 900px) {
-    input.table {
-      width: auto;
-    }
-
-
-}
-
-
 @media only screen and (min-width: 1050px) {
 
         .desaparece2{
@@ -94,6 +85,11 @@
 
 
 @media only screen and (max-width: 1050px) {
+
+    input.table {
+      width: auto;
+    }
+
     .calculator {
       display :block;
     }
@@ -103,5 +99,23 @@
     }
 
 
+    h4 {
+
+     font-size: 15px;
+
+    }
+
+
+    .btn-lg {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    }
+
+    .input-lg {
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 3px;
+    }
 
 }
