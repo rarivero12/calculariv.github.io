@@ -460,7 +460,14 @@ keys.addEventListener("click", e => {
         }
 
         if (action === 'clear') {
-          display.textContent = '0'
+            if (displayedNum === '0') {
+              display.textContent = '0'
+            } else {
+                display.textContent = displayedNum.substring(0, displayedNum.length - 1);
+                if(!display.textContent){
+                    display.textContent = '0'
+                }
+            }
         }
 
         if (action === 'calculate') {
