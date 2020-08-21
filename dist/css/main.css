@@ -1,4 +1,8 @@
-
+.btn-primary-mio {
+  color: #fff;
+  background-color: #ff9554;
+  border-color: #ff9554;
+}
 
 .btn-mio {
   border: 0;
@@ -64,7 +68,7 @@
 }
 
 .key--equal {
-  background-image: linear-gradient(to bottom, #fe886a, #ff7033);
+  background-image: linear-gradient(to bottom, #337ab7, #286090);
   grid-column: -2;
   grid-row: 2 / span 4;
 }
