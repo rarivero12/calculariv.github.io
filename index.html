@@ -92,7 +92,7 @@
           Calculadora
           <small>Version 1.0</small>
       </h1>
-        <ol class="breadcrumb">
+        <ol class="breadcrumb desaparece">
           <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
           <li><a href="#">Calculadora</a></li>
           <li class="active">Prueba</li>
@@ -240,9 +240,12 @@
 
         <!-- box primary de la tabla de productos dinamica -->
         <div class="box" id="div-tabla">
-          <div class="box-header">
-            <h3 class="box-title"> <i class="fa fa-calculator"></i> Calculadora </h3>
-            <button type="button" class="limpiarlista btn btn-primary btn-lg pull-right desaparece2"> <i class="fa fa-refresh"> </i> </button>
+          <div class="box-header desaparece">
+            <h3 class="box-title"> <i class="fa fa-calculator"></i>Calculadora </h3>
+          </div>
+          <div class="box-header desaparece2">
+            <h3 class="box-title"> <i class="fa fa-list"></i>Operaciones </h3>
+            <button type="button" class="limpiarlista btn btn-primary btn-lg pull-right"> <i class="fa fa-refresh"> </i> </button>
           </div>
           <!-- /.box-header -->
 
@@ -259,18 +262,19 @@
 
                           </div>
                           </div>
-                </div>
 
-                <div class="box-body">
+
+
                 <div class="table-responsive no-padding">
                   <table class="table table-hover table-bordered" id="myTable">
 
                     <thead>
                     <tr>
                       <th class="text-center">Accion</th>
-                      <th class="text-center">Cifra 1</th>
-                      <th class="text-center">Cifra 2</th>
-                      <th class="text-center">Sub-Total</th>
+                      <th class="text-center desaparece">Cifra 1</th>
+                      <th class="text-center desaparece">Cifra 2</th>
+                      <th class="text-center desaparece">Sub-Total</th>
+                      <th class="text-center desaparece2">Operacion</th>
                     </tr>
 
                     </thead>
@@ -278,17 +282,20 @@
 
                     <tbody id="myTableBody">
 
-                        <th></th>
-                        <th></th>
+                        <th class="text-center desaparece"></th>
+                        <th class="text-center desaparece"></th>
                         <th></th>
                         <th class="text-center"> <h4> <b id="total-aux-tabla">0</b></h4></th>
                      </tbody>
 
 
                   </table>
+
+
+                  </div>
                 </div>
                 <!-- /.box-body -->
-                </div>
+
 
               <div class="box-footer">
 

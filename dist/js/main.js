@@ -138,18 +138,21 @@ function appendToTable(input, tipo) {
                               <i class="fa fa-trash"></i>
                           </a>
                         </td>
-                       <td>
+                       <td class="text-center desaparece">
                        `
                             + div2 +
-                       `<h4 class="desaparece2 text-center">  ${numberWithCommas(numero1)}</h4>
+                       `
                        </td>
-                       <td>
-                       <h4 class="desaparece2 text-center">  ${numberWithCommas(numero2)}</h4>`
+                       <td class="text-center desaparece">`
                        + div +
                         `<input type="number" style="display:none" type="hidden" name="sub-total${id_new}" value="${sub}" id="sub-total${id_new}">
                         </td>
-                       <td class="text-center">
+                       <td class="text-center desaparece">
                        <h4 id="sub_${id_new}" >  ${numberWithCommas(sub)}</h4>
+                       </td>
+                       <td class="text-center desaparece2">
+                       <h4 class="desaparece2 text-center" id="operacion_${id_new}">  ${numberWithCommas(numero1)} x ${numberWithCommas(numero2)}</h4>
+                       <h4 id="sub2_${id_new}" > Sub:  ${numberWithCommas(sub)}</h4>
                        </td>
                     </tr>`);
 
@@ -177,7 +180,7 @@ function appendToTable(input, tipo) {
 
                             //Contador de filas actuales
                             var form_idx =  $('#form-ultimo').val();
-                            $('#form-ultimo').val(parseInt(form_idx) - 1 );
+                            $('#form-ultimo').val( parseInt(form_idx) - 1 );
                             $('#nro-items').html($('#form-ultimo').val());
 
                             if($('#myTable tr').length==2){
@@ -209,6 +212,8 @@ function appendToTable(input, tipo) {
                        var subn = ($("#id_costo_"+id_new).val().trim()*$(this).val().trim()).toFixed(2);
 
                        $("#sub_"+id_new).html(numberWithCommas(subn));
+                       $("#sub2_"+id_new).html("Sub: " + numberWithCommas(subn));
+                       $("#operacion_"+id_new).html( $("#id_costo_"+id_new).val().trim() + "x" + $(this).val().trim() );
                        $("#sub-total"+id_new).val(subn);
                        var dif = subn - old;
 
@@ -243,6 +248,8 @@ function appendToTable(input, tipo) {
 
 
                         $("#sub_"+id_new).html(numberWithCommas(subn));
+                        $("#sub2_"+id_new).html("Sub: " + numberWithCommas(subn));
+                        $("#operacion_"+id_new).html( $(this).val().trim() + " x " + $("#id_cantidad_"+id_new).val().trim() );
                         $("#sub-total"+id_new).val(subn);
                         var dif = subn - old;
 
@@ -343,6 +350,7 @@ $(document).ready( function () {
 //$("#div-total-change").hide();
 //$("#div_id_cambio_compra").hide();
 $("#total-aux-tabla").hide();
+$("#total-aux-tabla2").hide();
 $("#aux_id_cambio_compra").val(1);
 $("#guardar").hide();
 
