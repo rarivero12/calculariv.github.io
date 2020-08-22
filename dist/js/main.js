@@ -90,6 +90,7 @@ function cambiarTotal(diff){
     $("#total-aux-tabla").html(numberWithCommas(n_total));
 
     $("#total-change-aux").html(numberWithCommas(n_change));
+    $("#total-change-aux2").html(numberWithCommas(n_change));
 
     return 0;
 }
@@ -361,9 +362,11 @@ $("#id_usar_cambio").change(function(){
     if($(this).val()=="1"){
         $("#div_id_cambio_compra").show();
         $("#div-total-change").show();
+        $("#div-total-change2").show();
         $("#div-resumen-change").show();
     }else{
         $("#div-total-change").hide();
+        $("#div-total-change2").hide();
         $("#div-resumen-change").hide();
         $("#aux_id_cambio_compra").val(1);
         $("#div_id_cambio_compra").hide();
